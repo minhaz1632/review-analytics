@@ -1,13 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
-from datetime import datetime
 
 
 # Create your models here.
 class YelpBusinessItem(models.Model):
     url = models.URLField()
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
-    date_created = models.DateTimeField(default=datetime.now())
+    date_created = models.DateTimeField(auto_now_add=True)
 
 
 class Review(models.Model):
@@ -17,4 +16,4 @@ class Review(models.Model):
     date = models.DateTimeField()
     reviewer = models.TextField()
     reviewer_address = models.TextField()
-    date_created = models.DateTimeField(default=datetime.now())
+    date_created = models.DateTimeField(auto_now_add=True)

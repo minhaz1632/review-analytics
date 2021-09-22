@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
+from reviews.urls import review_router
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('user_profile.urls')),
+    path('review-analytics/', include(review_router.urls))
 ]
